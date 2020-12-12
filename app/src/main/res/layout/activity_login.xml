@@ -50,4 +50,72 @@
         android:textColor="#000"
         android:textSize="14sp"/>
 
+
+
+    <Button
+        android:id="@+id/signIn_user"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textColor="#fff"
+        android:background="@drawable/signup_btn"
+        android:text="Login"
+        android:textStyle="bold"
+        android:textScaleX="1.2"/>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signIn_user"
+        android:text="New user ? Register Now"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/main_colour"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/google_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv"
+        android:layout_marginTop="30dp"
+        android:weightSum="3">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.8"
+            android:layout_gravity="center|end"
+            android:background="@color/main_colour"
+            android:layerType="hardware"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.4"
+            android:text="Use Another Method"
+            android:textScaleX="1.2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/main_colour"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.8"
+            android:layout_gravity="center|start"
+            android:background="@color/main_colour" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/google"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/google_container"/>
+
 </RelativeLayout>
