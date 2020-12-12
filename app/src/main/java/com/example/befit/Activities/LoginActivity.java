@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference reference;
     Timer timer;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         signIn = findViewById(R.id.signIn_user);
         reg_page = findViewById(R.id.tv);
         mAuth = FirebaseAuth.getInstance();
+        progressBar = findViewById(R.id.signInProcessBar);
         reference = FirebaseDatabase.getInstance().getReference();
 
         signIn.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                        finish();
                         Anim.animateFade(LoginActivity.this);
                     }
                 },500);
@@ -77,16 +81,19 @@ public class LoginActivity extends AppCompatActivity {
         pwd = password.getText().toString();
 
         if (emails.isEmpty()){
+
             email.setError("Required!");
             email.requestFocus();
             return;
 
         }else if (!Patterns.EMAIL_ADDRESS.matcher(emails).matches()){
+
             email.setError("Please provide valid email address");
             email.requestFocus();
             return;
 
         }else if (pwd.length() < 6){
+
             password.setError("Please provide valid password");
             password.requestFocus();
             return;
@@ -97,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
 
         }else {
+            progressBar.setVisibility(View.VISIBLE);
             logUser(emails,pwd);
         }
     }
@@ -108,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             //FirebaseUser user = mAuth.getCurrentUser();
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this,"Ok! You are Logged In", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();

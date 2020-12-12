@@ -14,8 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.befit.Animation.Anim;
 import com.example.befit.MainActivity;
 import com.example.befit.R;
 import com.example.befit.model.User;
@@ -30,6 +32,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -40,6 +44,8 @@ public class RegisterActivity extends AppCompatActivity {
     ProgressBar progressBar;
     DatabaseReference databaseReference;
     EditText edt_names, edt_emails, edt_phones, edt_password, edt_age;
+    TextView tv;
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
         edt_password = findViewById(R.id.password);
         edt_age = findViewById(R.id.text_age);
         progressBar = findViewById(R.id.progress_bar);
+        tv = findViewById(R.id.reg_tv);
         mAuth = FirebaseAuth.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +71,21 @@ public class RegisterActivity extends AppCompatActivity {
 //                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
 //                Toast.makeText(RegisterActivity.this, "Register SuccessFull", Toast.LENGTH_SHORT).show();
                 registerUser();
+            }
+        });
+
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                        finish();
+                        Anim.animateFade(RegisterActivity.this);
+                    }
+                },1500);
             }
         });
 

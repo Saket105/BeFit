@@ -134,6 +134,17 @@
                 android:background="@drawable/signup_btn"
                 android:text="SignUp"/>
 
+            <TextView
+                android:id="@+id/reg_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register_user"
+                android:text="Already have an account ? SignIn Now"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/main_colour"
+                android:textStyle="bold"/>
+
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
