@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                         Anim.animateFade(LoginActivity.this);
                     }
-                },500);
+                },1000);
             }
         });
     }
@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                             //FirebaseUser user = mAuth.getCurrentUser();
                             progressBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this,"Ok! You are Logged In", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            startActivity(new Intent(LoginActivity.this, BodyMeasureActivity.class));
                             finish();
                         }
                     }

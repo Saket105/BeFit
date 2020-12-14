@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner spinner;
     Button signup;
     FirebaseAuth mAuth;
-    String gender1 = "12";
+    String gender1;
     ProgressBar progressBar;
     DatabaseReference databaseReference;
     EditText edt_names, edt_emails, edt_phones, edt_password, edt_age;
@@ -85,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                         finish();
                         Anim.animateFade(RegisterActivity.this);
                     }
-                },1500);
+                },1000);
             }
         });
 
@@ -197,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         progressBar.setVisibility(View.GONE);
-                                        startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                                        startActivity(new Intent(RegisterActivity.this,BodyMeasureActivity.class));
                                         finish();
                                         Toast.makeText(RegisterActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                                     }
