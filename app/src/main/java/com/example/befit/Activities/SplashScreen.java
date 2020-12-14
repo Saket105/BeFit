@@ -12,17 +12,18 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.example.befit.Animation.Anim;
+import com.example.befit.MainActivity;
 import com.example.befit.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class SplashScreen extends AppCompatActivity {
-    Button signIn, signUp;
-    private static int SPLASH_SCREEN = 4000;
-    RelativeLayout splashImage;
-    Animation bottom;
     Timer timer;
+    FirebaseAuth mAuth;
+    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,32 +31,37 @@ public class SplashScreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_splash_screen);
 
-//        signIn = findViewById(R.id.splash_signin1);
-//        signUp = findViewById(R.id.splash_signup1);
-//        bottom = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
 
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashScreen.this,LoginActivity.class));
-                Anim.animateSlideUp(SplashScreen.this);
-                finish();
-            }
-        },2500);
 
-//        signIn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(SplashScreen.this,LoginActivity.class));
-//            }
-//        });
-//
-//        signUp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(SplashScreen.this,RegisterActivity.class));
-//            }
-//        });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (firebaseUser != null){
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    Anim.animateSlideUp(SplashScreen.this);
+                    finish();
+                }
+            },2500);
+        } else {
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(SplashScreen.this,LoginActivity.class));
+                    Anim.animateSlideUp(SplashScreen.this);
+                    finish();
+                }
+            },2500);
+        }
     }
 }

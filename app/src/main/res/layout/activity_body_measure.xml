@@ -146,6 +146,7 @@
                     android:weightSum="2">
 
                     <TextView
+                        android:id="@+id/weight_text"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -170,7 +171,7 @@
                     android:id="@+id/weight_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="1000"
+                    android:max="120"
                     android:layout_below="@+id/weight_cont"
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="10dp"
@@ -226,6 +227,7 @@
                     android:weightSum="2">
 
                     <EditText
+                        android:id="@+id/give_height"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1.2"
@@ -254,6 +256,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
@@ -264,12 +267,13 @@
 
     <Button
         android:id="@+id/skip_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="25dp"
         android:text="Skip"
-        android:background="@drawable/signup_btn"
+        android:background="@color/main_colour"
+        android:elevation="0dp"
         android:textColor="#fff"
         android:layout_alignParentRight="true"
-        android:layout_margin="5dp"/>
+        android:layout_margin="10dp"/>
 
 </RelativeLayout>

@@ -37,7 +37,6 @@ import java.util.TimerTask;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    Spinner spinner;
     Button signup;
     FirebaseAuth mAuth;
     String gender1;
@@ -53,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_register);
 
-        spinner = findViewById(R.id.spinner1);
         signup = findViewById(R.id.register_user);
         edt_names = findViewById(R.id.name);
         edt_emails = findViewById(R.id.email);
@@ -89,37 +87,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        final List<String> gender = new ArrayList<>();
-        gender.add("Male");
-        gender.add("Female");
-        gender.add("Other");
-        ArrayAdapter<String> dataAdapter;
-        dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,gender);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(dataAdapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                spinner.setSelection(position);
-                switch (position) {
-                    case 0:
-                        gender1 = "Male";
-                        break;
-                    case 1:
-                        gender1 = "Female";
-                        break;
-                    case 2:
-                        gender1 = "Others";
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(RegisterActivity.this, "Please Provide your gender", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void registerUser() {
@@ -128,7 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
         final String phone = edt_phones.getText().toString().trim();
         String pwd = edt_password.getText().toString().trim();
         final String age = edt_age.getText().toString().trim();
-        final String gender = gender1;
 
         if (email.isEmpty()) {
             edt_emails.setError("Required!");
@@ -189,7 +155,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     edt_emails.getText().toString(),
                                     edt_phones.getText().toString(),
                                     edt_age.getText().toString(),
-                                    gender1
+                                    "",
+                                    "",
+                                    ""
                             );
 
                             databaseReference.setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -197,7 +165,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         progressBar.setVisibility(View.GONE);
-                                        startActivity(new Intent(RegisterActivity.this,BodyMeasureActivity.class));
+                                        startActivity(new Intent(RegisterActivity.this,BodyMeasureActivity.class)
+                                                .putExtra("name",edt_names.getText().toString())
+                                                .putExtra("email",edt_emails.getText().toString())
+                                                .putExtra("phone",edt_phones.getText().toString())
+                                                .putExtra("age",edt_age.getText().toString()));
                                         finish();
                                         Toast.makeText(RegisterActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                                     }
