@@ -13,7 +13,6 @@
         android:layout_alignParentBottom="true"
         android:background="#fff"
         app:cnb_unselectedColor="#000"
-        app:cnb_badgeColor="@color/main_colour"
         app:cnb_radius="5dp"
         android:elevation="5dp"
         app:cnb_iconSize="24dp"/>

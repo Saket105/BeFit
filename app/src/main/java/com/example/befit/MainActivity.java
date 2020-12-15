@@ -3,18 +3,13 @@ package com.example.befit;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import com.example.befit.ui.dashboard.DashboardFragment;
-import com.example.befit.ui.home.HomeFragment;
-import com.example.befit.ui.notifications.NotificationsFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.befit.ui.DashboardFragment;
+import com.example.befit.ui.HomeFragment;
+import com.example.befit.ui.NotificationsFragment;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
