@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         chipNavigationBar = findViewById(R.id.nav_view);
         chipNavigationBar.setItemSelected(R.id.navigation_home,true);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
         bottomMenu();
 
     }
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new NotificationsFragment();
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
             }
         });
     }

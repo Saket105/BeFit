@@ -98,8 +98,7 @@
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_weight="0.5"
-                            android:src="@drawable/electricity"
-                            android:backgroundTint="#fff"/>
+                            android:src="@drawable/thunder"/>
                     </LinearLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -207,8 +206,7 @@
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_weight="0.5"
-                            android:src="@drawable/moon"
-                            android:backgroundTint="#fff"/>
+                            android:src="@drawable/moon"/>
                     </LinearLayout>
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/sleep_constraint"
@@ -328,8 +326,7 @@
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_weight="0.5"
-                            android:src="@drawable/running"
-                            android:backgroundTint="#fff"/>
+                            android:src="@drawable/runniing"/>
                     </LinearLayout>
                     <TextView
                         android:id="@+id/step_counter"
@@ -379,7 +376,7 @@
                             android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:text="80000"
                             android:textColor="#fff"
                             android:textSize="16sp"
@@ -389,11 +386,9 @@
 
                         <ImageView
                             android:id="@+id/imageView"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="8dp"
-                            android:background="@drawable/footsteps"
-                            android:backgroundTint="#fff"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/footsteps"
                             app:layout_constraintEnd_toEndOf="@+id/textView4"
                             app:layout_constraintStart_toStartOf="@+id/textView4"
                             app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -435,8 +430,7 @@
                             android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_weight="0.5"
-                            android:src="@drawable/pulse"
-                            android:backgroundTint="#fff"/>
+                            android:src="@drawable/pulse"/>
                     </LinearLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
