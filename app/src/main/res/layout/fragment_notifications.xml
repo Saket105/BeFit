@@ -7,17 +7,15 @@
     android:background="#FFCBDD"
     tools:context=".ui.NotificationsFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:text="Profile Fragment"
-        android:textColor="#000"
-        android:textSize="20sp"
+        android:text="Logout"
+        android:background="@drawable/signup_btn"
+        android:textColor="#fff"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
