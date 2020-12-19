@@ -20,7 +20,7 @@ import com.example.befit.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class NotificationsFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
     Button logout;
     FirebaseAuth mAuth;

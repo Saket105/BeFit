@@ -5,7 +5,7 @@ import android.view.WindowManager;
 
 import com.example.befit.ui.DashboardFragment;
 import com.example.befit.ui.HomeFragment;
-import com.example.befit.ui.NotificationsFragment;
+import com.example.befit.ui.ProfileFragment;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         chipNavigationBar = findViewById(R.id.nav_view);
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navigation_notifications:
-                        fragment = new NotificationsFragment();
+                        fragment = new ProfileFragment();
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
