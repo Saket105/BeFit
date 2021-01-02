@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -45,6 +46,7 @@ public class BodyMeasureActivity extends AppCompatActivity {
     FirebaseUser firebaseUser;
     FirebaseAuth mAuth;
     DatabaseReference reference;
+    Button skip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,7 @@ public class BodyMeasureActivity extends AppCompatActivity {
         seekBar = findViewById(R.id.weight_bar);
         txt_weight = findViewById(R.id.weight_text);
         floatingActionButton = findViewById(R.id.fab);
+        skip = findViewById(R.id.skip_btn);
         mAuth = FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -69,6 +72,14 @@ public class BodyMeasureActivity extends AppCompatActivity {
         ArrayAdapter<String> dataAdapter;
         dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,gender);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BodyMeasureActivity.this,MainActivity.class));
+                finish();
+            }
+        });
 
         spinner.setAdapter(dataAdapter);
 
